@@ -11,5 +11,5 @@ export const brandTokens = {
   ],
 } as const;
 
-export const buildAgencyPageTitle = (pageTitle: string) =>
-  `${pageTitle} | ${brandTokens.agencyName}`;
+export const buildAgencyPageTitle = (pageTitle: string | null) =>
+  `${pageTitle || "Model"} | ${brandTokens.agencyName}`;
