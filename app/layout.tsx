@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import localFont from "next/font/local";
 import { brandTokens } from "@/lib/designTokens";
 
@@ -101,6 +102,7 @@ export default function RootLayout({
           <Providers>{children}</Providers>
           <Footer />
         </Lenis>
+        <Analytics />
       </body>
     </html>
   );
