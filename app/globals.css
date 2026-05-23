@@ -1,4 +1,8 @@
 :root {
+  /* brand */
+  --brand-agency-name: KBS Models;
+  --brand-agency-short-name: KBS;
+
   /* colors */
   --color-primary: #795119;
   --color-dark-primary: #5a3a12;

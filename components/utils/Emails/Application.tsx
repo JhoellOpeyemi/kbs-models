@@ -8,6 +8,7 @@ import {
   Section,
   Text,
 } from "@react-email/components";
+import { brandTokens } from "@/lib/designTokens";
 
 interface ApplicationProps {
   firstName: string;
@@ -39,14 +40,14 @@ export default function Application({
   return (
     <Html>
       <Head />
-      <Preview>New Application Received - DXC Models</Preview>
+      <Preview>{`New Application Received - ${brandTokens.agencyName}`}</Preview>
       <Body style={main}>
         <Container style={container}>
           <Section style={box}>
             <Text style={heading}>New Application Received</Text>
             <Hr style={hr} />
             <Text style={paragraph}>
-              A new application has been submitted to DXC Models.
+              {`A new application has been submitted to ${brandTokens.agencyName}.`}
             </Text>
             <Text style={paragraph}>
               <strong>Applicant Details:</strong>
@@ -69,7 +70,7 @@ export default function Application({
               Please review the application and attached photos.
             </Text>
             <Hr style={hr} />
-            <Text style={footer}>DXC Models Team</Text>
+            <Text style={footer}>{brandTokens.agencyTeamName}</Text>
           </Section>
         </Container>
       </Body>

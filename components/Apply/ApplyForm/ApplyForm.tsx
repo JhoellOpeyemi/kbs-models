@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { z } from "zod";
 import { applicationSchema } from "@/app/api/applications/schema";
+import { useCsrfToken } from "@/hooks/useCsrfToken";
 import FormBtn from "@/components/ui/FormBtn/FormBtn";
 import FormSuccess from "@/components/ui/FormSuccess/FormSuccess";
 import "./applyForm.css";
@@ -15,6 +16,11 @@ const ApplyForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const {
+    csrfToken,
+    isLoading: isCsrfLoading,
+    error: csrfError,
+  } = useCsrfToken();
 
   const {
     register,
@@ -26,6 +32,13 @@ const ApplyForm = () => {
   });
 
   const onSubmit: SubmitHandler<ApplicationFormData> = async (data) => {
+    if (!csrfToken) {
+      setSubmitError(
+        csrfError || "Unable to secure the form. Please refresh and try again.",
+      );
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitError(null);
     setSubmitSuccess(false);
@@ -44,6 +57,9 @@ const ApplyForm = () => {
 
       const response = await fetch("/api/applications", {
         method: "POST",
+        headers: {
+          "X-CSRF-Token": csrfToken,
+        },
         body: formData,
       });
 
@@ -53,9 +69,9 @@ const ApplyForm = () => {
           setSubmitSuccess(false);
         }, 5000);
       } else {
-        const errorData = await response.json();
+        const errorData = await response.json().catch(() => null);
         setSubmitError(
-          errorData.error?.join(", ") ||
+          errorData?.error ||
             "An error occurred while submitting the application.",
         );
       }
@@ -69,7 +85,9 @@ const ApplyForm = () => {
   return (
     <div className="apply-form-container">
       <form className="form" onSubmit={handleSubmit(onSubmit)}>
-        {submitError && <div className="error-message">{submitError}</div>}
+        {(submitError || csrfError) && (
+          <div className="error-message">{submitError || csrfError}</div>
+        )}
 
         <fieldset disabled={isSubmitting} className="apply-form-fieldset">
           <div className="apply-form-input-group">
@@ -367,8 +385,14 @@ const ApplyForm = () => {
             </div>
 
             <FormBtn
-              label={isSubmitting ? "Submitting..." : "Submit"}
-              disabled={isSubmitting}
+              label={
+                isSubmitting
+                  ? "Submitting..."
+                  : isCsrfLoading
+                    ? "Securing form..."
+                    : "Submit"
+              }
+              disabled={isSubmitting || isCsrfLoading}
             />
           </div>
         </fieldset>

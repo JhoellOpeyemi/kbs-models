@@ -3,6 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { bookingSchema } from "@/app/api/bookings/schema";
+import { useCsrfToken } from "@/hooks/useCsrfToken";
 
 import FormBtn from "@/components/ui/FormBtn/FormBtn";
 import FormSuccess from "@/components/ui/FormSuccess/FormSuccess";
@@ -20,6 +21,11 @@ const BookingForm = ({ closeBookingModal, modelName }: BookingFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const {
+    csrfToken,
+    isLoading: isCsrfLoading,
+    error: csrfError,
+  } = useCsrfToken();
 
   const {
     register,
@@ -31,6 +37,13 @@ const BookingForm = ({ closeBookingModal, modelName }: BookingFormProps) => {
   });
 
   const onSubmit: SubmitHandler<BookingFormData> = async (data) => {
+    if (!csrfToken) {
+      setSubmitError(
+        csrfError || "Unable to secure the form. Please refresh and try again.",
+      );
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitError(null);
     setSubmitSuccess(false);
@@ -40,6 +53,7 @@ const BookingForm = ({ closeBookingModal, modelName }: BookingFormProps) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "X-CSRF-Token": csrfToken,
         },
         body: JSON.stringify(data),
       });
@@ -50,7 +64,10 @@ const BookingForm = ({ closeBookingModal, modelName }: BookingFormProps) => {
           closeBookingModal();
         }, 3000);
       } else {
-        setSubmitError("An error occurred while submitting the booking.");
+        const errorData = await response.json().catch(() => null);
+        setSubmitError(
+          errorData?.error || "An error occurred while submitting the booking.",
+        );
       }
     } catch (error) {
       setSubmitError("Network error. Please try again.");
@@ -72,7 +89,9 @@ const BookingForm = ({ closeBookingModal, modelName }: BookingFormProps) => {
             (X)
           </button>
 
-          {submitError && <div className="error-message">{submitError}</div>}
+          {(submitError || csrfError) && (
+            <div className="error-message">{submitError || csrfError}</div>
+          )}
 
           <div className="input-group-container">
             <div className="input-group">
@@ -157,8 +176,14 @@ const BookingForm = ({ closeBookingModal, modelName }: BookingFormProps) => {
           </div>
 
           <FormBtn
-            label={isSubmitting ? "Submitting..." : "Send Booking Request"}
-            disabled={isSubmitting}
+            label={
+              isSubmitting
+                ? "Submitting..."
+                : isCsrfLoading
+                  ? "Securing form..."
+                  : "Send Booking Request"
+            }
+            disabled={isSubmitting || isCsrfLoading}
           />
 
           {submitSuccess && (

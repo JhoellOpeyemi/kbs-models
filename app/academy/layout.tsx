@@ -1,9 +1,10 @@
+import { brandTokens, buildAgencyPageTitle } from "@/lib/designTokens";
+
 export const metadata = {
   title: "Academy",
-  description:
-    "Join DXC Models Academy — professional training in modelling, grooming, and creative skills to build a strong foundation for your career.",
+  description: `Join ${brandTokens.academyName} — professional training in modelling, grooming, and creative skills to build a strong foundation for your career.`,
   openGraph: {
-    title: "Academy | DXC Models",
+    title: buildAgencyPageTitle("Academy"),
     // url: '' this is the live url
   },
 };

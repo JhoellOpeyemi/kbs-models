@@ -1,9 +1,10 @@
+import { brandTokens, buildAgencyPageTitle } from "@/lib/designTokens";
+
 export const metadata = {
   title: "Become a Model",
-  description:
-    "Start your modelling journey with DXC Models. Submit your application and join a community redefining beauty and confidence in Lagos.",
+  description: `Start your modelling journey with ${brandTokens.agencyName}. Submit your application and join a community redefining beauty and confidence in Lagos.`,
   openGraph: {
-    title: "Become a Model | DXC Models",
+    title: buildAgencyPageTitle("Become a Model"),
     // url: '' this is the live url
   },
 };

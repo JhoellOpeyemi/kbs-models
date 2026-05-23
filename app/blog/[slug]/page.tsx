@@ -4,6 +4,7 @@ import { prefetchBlogDetails } from "@/sanity/lib/prefetch";
 import { client } from "@/sanity/lib/client";
 import { BLOG_DETAILS_QUERY } from "@/sanity/lib/queries";
 import type { Metadata } from "next";
+import { buildAgencyPageTitle } from "@/lib/designTokens";
 
 import BlogDetails from "@/components/Blog/BlogDetails/BlogDetails";
 
@@ -22,7 +23,7 @@ export async function generateMetadata({
     };
   } catch (error) {
     return {
-      title: "Blog | DXC Models",
+      title: buildAgencyPageTitle("Blog"),
     };
   }
 }

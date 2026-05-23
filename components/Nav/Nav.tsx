@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 // component imports
 import StyledLink from "@/components/utils/StyledLink/StyledLink";
 import MobileNav from "@/components/Nav/Mobile/MobileNav";
+import { brandTokens } from "@/lib/designTokens";
 // utils imports
 import { linkArray } from "@/utils";
 // styles import
@@ -55,7 +56,7 @@ const Nav = () => {
           className={`header flex-between container ${isVisible ? "show-header" : "hide-header"}`}
         >
           <Link href="/" className="logo">
-            DXC
+            {brandTokens.agencyShortName}
           </Link>
 
           <nav className="nav">

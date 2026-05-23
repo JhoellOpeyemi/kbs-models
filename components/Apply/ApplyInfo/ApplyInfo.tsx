@@ -30,6 +30,9 @@ const ApplyInfo = () => {
               Try to avoid flash photography (turn the flash off on your
               camera).
             </li>
+            <li className="polaroids-info-list">
+              Please make sure uploaded images are less than 5MB.
+            </li>
           </ul>
         </div>
 

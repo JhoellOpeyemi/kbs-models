@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 import Link from "next/link";
 import Image from "next/image";
+import { brandTokens } from "@/lib/designTokens";
 
 // components imports
 import StyledLink from "@/components/utils/StyledLink/StyledLink";
@@ -51,7 +52,7 @@ const MobileNav = () => {
           className={`${navOpen ? "logo nav-open" : "logo"}`}
           onClick={closeNav}
         >
-          DXC
+          {brandTokens.agencyShortName}
         </Link>
 
         {navOpen && (

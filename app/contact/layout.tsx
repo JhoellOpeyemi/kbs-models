@@ -1,9 +1,10 @@
+import { brandTokens, buildAgencyPageTitle } from "@/lib/designTokens";
+
 export const metadata = {
   title: "Contact",
-  description:
-    "Connect with DXC Models — collaborate, partner, or join our growing network of creative professionals and aspiring models.",
+  description: `Connect with ${brandTokens.agencyName} — collaborate, partner, or join our growing network of creative professionals and aspiring models.`,
   openGraph: {
-    title: "Contact | DXC Models",
+    title: buildAgencyPageTitle("Contact"),
     // url: '' this is the live url
   },
 };

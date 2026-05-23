@@ -1,9 +1,10 @@
+import { brandTokens, buildAgencyPageTitle } from "@/lib/designTokens";
+
 export const metadata = {
   title: "Shop",
-  description:
-    "Shop curated modelling guides, digital resources and creative products from DXC Models.",
+  description: `Shop curated modelling guides, digital resources and creative products from ${brandTokens.agencyName}.`,
   openGraph: {
-    title: "Shop | DXC Models",
+    title: buildAgencyPageTitle("Shop"),
     // url: '' this is the live url
   },
 };

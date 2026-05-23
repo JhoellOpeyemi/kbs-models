@@ -28,27 +28,27 @@
 }
 
 @media screen and (max-width: 768px) {
-    .value-container {
-        flex-direction: column;
-        gap: calc(var(--gap) * 2.4);
-    }
+  .value-container {
+    flex-direction: column;
+    gap: calc(var(--gap) * 2.4);
+  }
 
-    .value-image-container {
-        width: 75%;
-        aspect-ratio: 1 / 1.2;
-        margin-left: auto;
-    }
+  .value-image-container {
+    width: 75%;
+    aspect-ratio: 1 / 1.2;
+    margin-left: auto;
+  }
 
-    .value-text-container {
-        width: min(32rem, 100%);
-        gap: calc(var(--gap) * 2.4);
-    }
+  .value-text-container {
+    width: min(32rem, 100%);
+    gap: calc(var(--gap) * 2.4);
+  }
 }
 
 @media screen and (max-width: 480px) {
-    .value-image-container {
-        width: 100%;
-        aspect-ratio: 1 / 1.1;
-        margin-left: unset;
-    }
+  .value-image-container {
+    width: 100%;
+    aspect-ratio: 1 / 1.1;
+    margin-left: unset;
+  }
 }

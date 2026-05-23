@@ -4,14 +4,32 @@ import { z } from "zod";
 import BookingsReceived from "@/components/utils/Emails/BookingsReceived";
 import Booking from "@/components/utils/Emails/Booking";
 import { bookingSchema } from "./schema";
+import { guardApiRequest } from "@/lib/apiSecurity";
+import { brandTokens } from "@/lib/designTokens";
+import { logError, logDebug } from "@/lib/logging";
 
 const apiKey = process.env.RESEND_API_KEY;
 const agencyEmail = process.env.AGENCY_EMAIL;
 
-const resend = new Resend("" + apiKey + "");
+if (!apiKey) {
+  console.error(
+    "[CRITICAL] RESEND_API_KEY environment variable is not configured",
+  );
+}
+
+const resend = new Resend(apiKey);
 
 export async function POST(req: Request) {
   try {
+    const requestGuard = guardApiRequest(req, {
+      bucket: "bookings",
+      expectedContentType: "application/json",
+    });
+
+    if (requestGuard) {
+      return requestGuard;
+    }
+
     const body = await req.json();
     const validatedData = bookingSchema.parse(body);
 
@@ -25,7 +43,7 @@ export async function POST(req: Request) {
     const { error } = await resend.emails.send({
       from: "Test <onboarding@resend.dev>",
       to: [email],
-      subject: "Booking Request Received - DXC Models",
+      subject: `Booking Request Received - ${brandTokens.agencyName}`,
       react: BookingsReceived({
         clientName,
         modelName,
@@ -38,7 +56,7 @@ export async function POST(req: Request) {
       const { error: agencyError } = await resend.emails.send({
         from: "Test <onboarding@resend.dev>",
         to: [agencyEmail],
-        subject: "New Booking Received - DXC Models",
+        subject: `New Booking Received - ${brandTokens.agencyName}`,
         react: Booking({
           clientName: validatedData.clientName,
           modelName: validatedData.modelName,
@@ -48,7 +66,11 @@ export async function POST(req: Request) {
         }),
       });
       if (agencyError) {
-        console.error("Failed to send agency email");
+        logError(
+          { endpoint: "/api/bookings", action: "send_agency_email" },
+          agencyError,
+          "Failed to send agency booking notification",
+        );
       }
     }
 
@@ -65,11 +87,26 @@ export async function POST(req: Request) {
     );
   } catch (error) {
     if (error instanceof z.ZodError) {
+      logDebug(
+        { endpoint: "/api/bookings", action: "validation" },
+        "Validation error occurred",
+        {
+          errorCount: error.issues.length,
+        },
+      );
+
       return NextResponse.json(
-        { error: error.issues.map((e) => e.message).join(", ") },
+        { error: "Validation failed. Please check your inputs and try again." },
         { status: 400 },
       );
     }
+
+    logError(
+      { endpoint: "/api/bookings", action: "process_booking" },
+      error,
+      "Unexpected error during booking submission",
+    );
+
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 },

@@ -11,6 +11,7 @@ import {
   Section,
   Text,
 } from "@react-email/components";
+import { brandTokens } from "@/lib/designTokens";
 
 interface ApplicationReceivedProps {
   firstName: string;
@@ -34,9 +35,7 @@ export default function ApplicationReceived({
               Hi {firstName} {lastName},
             </Text>
             <Text style={paragraph}>
-              Thank you for submitting your application to DXC Models. We have
-              received your application and it is now being reviewed by our
-              team.
+              {`Thank you for submitting your application to ${brandTokens.agencyName}. We have received your application and it is now being reviewed by our team.`}
             </Text>
             <Text style={paragraph}>
               We are impressed by your interest and will be in touch shortly
@@ -52,7 +51,7 @@ export default function ApplicationReceived({
             <Text style={footer}>
               Best regards,
               <br />
-              DXC Models Team
+              {brandTokens.agencyTeamName}
             </Text>
           </Section>
         </Container>

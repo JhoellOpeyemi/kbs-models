@@ -1,9 +1,10 @@
+import { brandTokens, buildAgencyPageTitle } from "@/lib/designTokens";
+
 export const metadata = {
   title: "Models",
-  description:
-    "Explore the faces of DXC Models — a diverse representation of beauty, creativity, and individuality redefining modern modelling in Africa.",
+  description: `Explore the faces of ${brandTokens.agencyName} — a diverse representation of beauty, creativity, and individuality redefining modern modelling in Africa.`,
   openGraph: {
-    title: "Models | DXC Models",
+    title: buildAgencyPageTitle("Models"),
     // url: '' this is the live url
   },
 };

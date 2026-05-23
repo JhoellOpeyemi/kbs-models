@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { brandTokens } from "@/lib/designTokens";
 
 import { ScrollToTopProvider } from "@/components/utils/ScrollToTopProvider";
 
@@ -51,13 +52,12 @@ const montserrat = localFont({
 export const metadata: Metadata = {
   // metadataBase: new URL('live site')
   title: {
-    default: "DXC Models | Lagos Modelling & Talent Development Agency",
-    template: "%s | DXC Models",
+    default: `${brandTokens.agencyName} | Lagos Modelling & Talent Development Agency`,
+    template: `%s | ${brandTokens.agencyName}`,
   },
-  description:
-    "DXC Models is a Lagos-based agency redefining modelling through inclusive talent development, creative direction, and global opportunities.",
+  description: `${brandTokens.agencyName} is a Lagos-based agency redefining modelling through inclusive talent development, creative direction, and global opportunities.`,
   keywords: [
-    "DXC Models",
+    brandTokens.agencyName,
     "Lagos modelling agency",
     "Nigeria modelling agency",
     "talent development",
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_NG",
-    siteName: "DXC Models",
+    siteName: brandTokens.agencyName,
   },
 };
 

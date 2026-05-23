@@ -9,6 +9,7 @@ import {
   Hr,
   Heading,
 } from "@react-email/components";
+import { brandTokens } from "@/lib/designTokens";
 
 interface BookingsReceivedProps {
   clientName: string;
@@ -25,7 +26,7 @@ export default function BookingsReceived({
     <Html>
       <Head />
       <Preview>
-        We&apos;ve received your booking request - Thank you for choosing DXC
+        {`We've received your booking request - Thank you for choosing ${brandTokens.agencyName}`}
       </Preview>
       <Body style={styles.body}>
         <Container style={styles.container}>
@@ -36,9 +37,10 @@ export default function BookingsReceived({
 
             <Text style={styles.text}>Hi {clientName},</Text>
             <Text style={styles.text}>
-              Thank you for reaching out to <strong>DXC Models</strong>.
-              We&apos;ve received your booking request for{" "}
-              <strong>{modelName}</strong> on <strong>{eventDate}</strong>.
+              Thank you for reaching out to{" "}
+              <strong>{brandTokens.agencyName}</strong>. We&apos;ve received
+              your booking request for <strong>{modelName}</strong> on{" "}
+              <strong>{eventDate}</strong>.
             </Text>
 
             <Text style={styles.text}>
@@ -49,14 +51,13 @@ export default function BookingsReceived({
             <Text style={styles.text}>
               If you have any questions in the meantime, feel free to reach out
               to us at{" "}
-              <a href="mailto:info@dxcmodels.com" style={styles.link}>
-                info@dxcmodels.com
+              <a href={`mailto:${brandTokens.agencyEmail}`} style={styles.link}>
+                {brandTokens.agencyEmail}
               </a>
             </Text>
 
             <Text style={styles.text}>
-              We appreciate your trust in DXC Models and look forward to making
-              your project a success.
+              {`We appreciate your trust in ${brandTokens.agencyName} and look forward to making your project a success.`}
             </Text>
 
             <Hr style={styles.hr} />

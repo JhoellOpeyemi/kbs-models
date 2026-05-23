@@ -9,6 +9,7 @@ import {
   Hr,
   Heading,
 } from "@react-email/components";
+import { brandTokens } from "@/lib/designTokens";
 
 interface BookingProps {
   clientName: string;
@@ -28,7 +29,7 @@ export default function Booking({
   return (
     <Html>
       <Head />
-      <Preview>New Booking Request Received - DXC Models</Preview>
+      <Preview>{`New Booking Request Received - ${brandTokens.agencyName}`}</Preview>
       <Body style={styles.body}>
         <Container style={styles.container}>
           <Section style={styles.content}>
@@ -37,7 +38,7 @@ export default function Booking({
             </Heading>
 
             <Text style={styles.text}>
-              A new booking request has been submitted for DXC Models.
+              {`A new booking request has been submitted for ${brandTokens.agencyName}.`}
             </Text>
 
             <Text style={styles.text}>
@@ -60,7 +61,7 @@ export default function Booking({
 
             <Hr style={styles.hr} />
 
-            <Text style={styles.footer}>DXC Models Team</Text>
+            <Text style={styles.footer}>{brandTokens.agencyTeamName}</Text>
           </Section>
         </Container>
       </Body>

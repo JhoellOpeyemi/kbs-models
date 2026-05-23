@@ -4,6 +4,7 @@ import { prefetchModelDetails } from "@/sanity/lib/prefetch";
 import { client } from "@/sanity/lib/client";
 import { MODEL_DETAILS_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
+import { brandTokens, buildAgencyPageTitle } from "@/lib/designTokens";
 // components imports
 import ModelDetails from "@/components/ModelsComponents/ModelDetails/ModelDetails";
 
@@ -24,20 +25,20 @@ export async function generateMetadata({
         ? model.gallery[0]
         : null;
 
-    const title = `${model.name} | DXC Models`;
-    const description = `Meet ${model.name} — profile on DXC Models.`;
+    const title = buildAgencyPageTitle(model.name);
+    const description = `Meet ${model.name} — profile on ${brandTokens.agencyName}.`;
 
     return {
       title,
       description,
       openGraph: {
-        title: `${model.name} | DXC Models`,
+        title,
         description,
         images: imageUrl
           ? [
               {
                 url: imageUrl,
-                alt: `${model.name} — DXC Models`,
+                alt: `${model.name} — ${brandTokens.agencyName}`,
               },
             ]
           : undefined,

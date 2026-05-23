@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 // hooks import
 import { linkArray } from "@/utils";
+import { brandTokens } from "@/lib/designTokens";
 // components imports
 import StyledLink from "@/components/utils/StyledLink/StyledLink";
 // styles import
@@ -21,8 +22,8 @@ const DesktopFooter = () => {
 
             <div className="contact">
               <h5 className="info-heading">For Enquiries:</h5>
-              <Link href="mailto:info@dxcmodels.com" target="_blank">
-                info@dxcmodels.com
+              <Link href={`mailto:${brandTokens.agencyEmail}`} target="_blank">
+                {brandTokens.agencyEmail}
               </Link>
               <p>+234 813 7427 904</p>
             </div>
@@ -65,7 +66,7 @@ const DesktopFooter = () => {
 
           <div className="footer-brand-container">
             <h5 className="footer-brand">
-              <span className="brand-dxc">Dxc</span>
+              <span className="brand-short">{brandTokens.agencyShortName}</span>
               <span className="brand-models">Models</span>
             </h5>
           </div>

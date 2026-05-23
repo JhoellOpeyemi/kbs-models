@@ -25,39 +25,23 @@ export const applicationSchema = z.object({
     .refine(
       (file) => file.size <= 5 * 1024 * 1024,
       "Headshot must be less than 5MB",
-    )
-    .refine(
-      (file) => ["image/jpeg", "image/png"].includes(file.type),
-      "Headshot must be JPEG or PNG",
     ),
   rightSideProfile: z
     .instanceof(File)
     .refine(
       (file) => file.size <= 5 * 1024 * 1024,
       "Right side profile must be less than 5MB",
-    )
-    .refine(
-      (file) => ["image/jpeg", "image/png"].includes(file.type),
-      "Right side profile must be JPEG or PNG",
     ),
   leftSideProfile: z
     .instanceof(File)
     .refine(
       (file) => file.size <= 5 * 1024 * 1024,
       "Left side profile must be less than 5MB",
-    )
-    .refine(
-      (file) => ["image/jpeg", "image/png"].includes(file.type),
-      "Left side profile must be JPEG or PNG",
     ),
   fullLength: z
     .instanceof(File)
     .refine(
       (file) => file.size <= 5 * 1024 * 1024,
       "Full length photo must be less than 5MB",
-    )
-    .refine(
-      (file) => ["image/jpeg", "image/png"].includes(file.type),
-      "Full length photo must be JPEG or PNG",
     ),
 });

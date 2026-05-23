@@ -1,14 +1,21 @@
 import "./styledInput.css";
 
+import { InputHTMLAttributes } from "react";
+
+type StyledInputProps = InputHTMLAttributes<HTMLInputElement> & {
+  label: string;
+  id: string;
+  type: string;
+  error?: string;
+};
+
 const StyledInput = ({
   label,
   id,
   type,
-}: {
-  label: string;
-  id: string;
-  type: string;
-}) => {
+  error,
+  ...inputProps
+}: StyledInputProps) => {
   return (
     <div className="styled-input-container">
       <label htmlFor={id} className="styled-input-label">
@@ -16,8 +23,8 @@ const StyledInput = ({
       </label>
       {type === "text" && id !== "previous-agency" && (
         <input
+          {...inputProps}
           id={id}
-          name={id}
           type={type}
           className="styled-input"
           required
@@ -25,8 +32,8 @@ const StyledInput = ({
       )}
       {type === "email" && (
         <input
+          {...inputProps}
           id={id}
-          name={id}
           type={type}
           className="styled-input"
           required
@@ -34,8 +41,8 @@ const StyledInput = ({
       )}
       {type === "file" && (
         <input
+          {...inputProps}
           id={id}
-          name={id}
           type={type}
           accept=".jpeg, .jpg, .png"
           className="styled-input"
@@ -44,8 +51,8 @@ const StyledInput = ({
       )}
       {type === "tel" && (
         <input
+          {...inputProps}
           id={id}
-          name={id}
           type={type}
           className="styled-input"
           required
@@ -53,8 +60,8 @@ const StyledInput = ({
       )}
       {type === "number" && id === "age" && (
         <input
+          {...inputProps}
           id={id}
-          name={id}
           type={type}
           min="2"
           max="80"
@@ -65,8 +72,9 @@ const StyledInput = ({
       )}
 
       {type === "text" && id === "previous-agency" && (
-        <input id={id} name={id} type={type} className="styled-input" />
+        <input {...inputProps} id={id} type={type} className="styled-input" />
       )}
+      {error && <span className="error">{error}</span>}
     </div>
   );
 };

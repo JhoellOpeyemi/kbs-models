@@ -5,9 +5,7 @@ const HomeAbout = () => {
   return (
     <section className="home-about-section">
       <h3 className="home-about-text">
-        We are a mother agency that recognizes the need for a modern and fresh
-        approach to training, development, management of a new generation of
-        models.
+        Nigeria's first dedicated face modelling agency
       </h3>
 
       <Brands />

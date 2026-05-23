@@ -6,31 +6,16 @@ gsap.registerPlugin(ScrollTrigger);
 export const linkArray = [
   { path: "/about", label: "About us" },
   { path: "/models", label: "Models" },
-  { path: "/academy", label: "Academy" },
   { path: "/apply", label: "Apply" },
-  { path: "/shop", label: "Shop" },
   { path: "/blog", label: "Blog" },
   { path: "/contact", label: "Contact" },
 ];
 
 export const brands = [
-  "Bolt",
-  "Puma",
-  "Salonpas",
-  "Skit Ng",
-  "Tecno",
-  "LYS Apparel",
-  "Fancy Africa",
-  "ShopRite",
-  "Fasha",
-  "Cowbell Milk",
-  "Zinni Luxury",
-  "Dang!",
-  "Xclusif",
-  "Desperados",
-  "Maestro Nigeria",
-  "Lost in Lagos",
-  "Ci Gusta",
+  "BMPro",
+  "Oshewa Beauty",
+  "House of Tara Int'l",
+  "Mango Stores Nigeria",
 ];
 
 export const formatDate = (date: string) => {

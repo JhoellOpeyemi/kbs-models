@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 // hooks import
 import { linkArray } from "@/utils";
+import { brandTokens } from "@/lib/designTokens";
 // components imports
 import StyledLink from "@/components/utils/StyledLink/StyledLink";
 // styles import
@@ -20,8 +21,8 @@ const MobileFooter = () => {
 
           <div className="mobile-contact">
             <h5 className="mobile-info-heading">For Enquiries:</h5>
-            <Link href="mailto:info@dxcmodels.com" target="_blank">
-              info@dxcmodels.com
+            <Link href={`mailto:${brandTokens.agencyEmail}`} target="_blank">
+              {brandTokens.agencyEmail}
             </Link>
             <p>+234 813 7427 904</p>
           </div>
@@ -62,11 +63,15 @@ const MobileFooter = () => {
           <div className="mobile-footer-brand-container">
             <div className="mobile-footer-brand-marquee">
               <h5 className="mobile-footer-brand">
-                <span className="mobile-brand-dxc">Dxc</span>
+                <span className="mobile-brand-short">
+                  {brandTokens.agencyShortName}
+                </span>
                 <span className="mobile-brand-models">Models</span>
               </h5>
               <h5 className="mobile-footer-brand" aria-hidden="true">
-                <span className="mobile-brand-dxc">Dxc</span>
+                <span className="mobile-brand-short">
+                  {brandTokens.agencyShortName}
+                </span>
                 <span className="mobile-brand-models">Models</span>
               </h5>
             </div>
