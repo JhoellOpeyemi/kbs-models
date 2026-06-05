@@ -84,3 +84,6 @@ export const horizontalScroll = (
 
   return { kill };
 };
+
+export const ease1 = "cubic-bezier(0.34, 1.56, 0.64, 1)";
+export const ease2 = "cubic-bezier(0.77, 0, 0.175, 1)";

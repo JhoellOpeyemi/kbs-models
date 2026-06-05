@@ -53,10 +53,10 @@ const montserrat = localFont({
 export const metadata: Metadata = {
   // metadataBase: new URL('live site')
   title: {
-    default: `${brandTokens.agencyName} | Lagos Modelling & Talent Development Agency`,
+    default: `${brandTokens.agencyName} | Nigeria's First Dedicated Face Modelling Agency`,
     template: `%s | ${brandTokens.agencyName}`,
   },
-  description: `${brandTokens.agencyName} is a Lagos-based agency redefining modelling through inclusive talent development, creative direction, and global opportunities.`,
+  description: `${brandTokens.agencyName} is Nigeria's first dedicated face modelling agency, based in Lagos, Abuja and London. We specialize in talent development and model management. Our services include creative direction, model scouting, portfolio development, and training programs. Join us to become part of a diverse and dynamic modelling community that celebrates individuality and creativity.`,
   keywords: [
     brandTokens.agencyName,
     "Lagos modelling agency",
