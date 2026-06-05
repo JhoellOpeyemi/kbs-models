@@ -8,7 +8,7 @@
 
 .model-card-wrapper {
   display: flex;
-  gap: var(--gap);
+  gap: calc(var(--gap) * 1.5);
   padding: 0 5%;
   width: max-content;
 }

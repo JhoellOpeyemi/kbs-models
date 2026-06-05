@@ -44,9 +44,8 @@ export const HOME_MODELS_QUERY = defineQuery(
         name,
         "slug": slug.current,
         headshot,
-        height,
-        bust,
-        chest
+        eye_color,
+        skin_tone,
     }`,
 );
 
@@ -60,17 +59,13 @@ export const MODELS_QUERY = defineQuery(
         name,
         "slug": slug.current,
         headshot,
-        height,
-        waist,
-        eyes,
+        gender,
+        eye_color,
         hair,
-        shoe,
-        bust,
-        hips,
-        dress,
-        chest,
-        inseam,
-        gender
+        skin_tone,
+        skin_type,
+        face_shape,
+        lip_size
     }`,
 );
 

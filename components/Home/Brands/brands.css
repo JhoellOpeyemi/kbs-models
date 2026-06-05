@@ -35,6 +35,7 @@
 .brands-text-container a {
   font-size: var(--sm-button);
   font-weight: 500;
+  margin-top: 1rem;
 }
 
 .brands-video-container {

@@ -29,56 +29,32 @@ const ModelDetails = ({ slug }: { slug: string }) => {
           <div className="model-details-content">
             <h1 className="model-name">{model?.name}</h1>
 
-            <div className="model-stats-container">
+            {/* <div className="model-stats-container">
               <p className="model-stat">
-                <span className="stat-heading">Height — </span>
-                <span className="stat-value">{model?.height}</span>
-              </p>
-              {model?.gender == "female" && (
-                <>
-                  <p className="model-stat">
-                    <span className="stat-heading">Bust — </span>
-                    <span className="stat-value">{model?.bust}</span>
-                  </p>
-                  <p className="model-stat">
-                    <span className="stat-heading">Hips — </span>
-                    <span className="stat-value">{model?.hips}</span>
-                  </p>
-                  <p className="model-stat">
-                    <span className="stat-heading">Dress — </span>
-                    <span className="stat-value">{model?.dress}</span>
-                  </p>
-                </>
-              )}
-              {model?.gender == "male" && (
-                <>
-                  <p className="model-stat">
-                    <span className="stat-heading">Chest — </span>
-                    <span className="stat-value">{model?.chest}</span>
-                  </p>
-                  <p className="model-stat">
-                    <span className="stat-heading">Inseam — </span>
-                    <span className="stat-value">{model?.inseam}</span>
-                  </p>
-                </>
-              )}
-              <p className="model-stat">
-                <span className="stat-heading">Waist — </span>
-                <span className="stat-value">{model?.waist}</span>
+                <span className="stat-heading">Skin Tone — </span>
+                <span className="stat-value">{model?.skin_tone}</span>
               </p>
               <p className="model-stat">
-                <span className="stat-heading">Eyes — </span>
-                <span className="stat-value">{model?.eyes}</span>
+                <span className="stat-heading">Skin Type — </span>
+                <span className="stat-value">{model?.skin_type}</span>
+              </p>
+              <p className="model-stat">
+                <span className="stat-heading">Face Shape — </span>
+                <span className="stat-value">{model?.face_shape}</span>
+              </p>
+              <p className="model-stat">
+                <span className="stat-heading">Eye Color — </span>
+                <span className="stat-value">{model?.eye_color}</span>
               </p>
               <p className="model-stat">
                 <span className="stat-heading">Hair — </span>
                 <span className="stat-value">{model?.hair}</span>
               </p>
               <p className="model-stat">
-                <span className="stat-heading">Shoe — </span>
-                <span className="stat-value">{model?.shoe}</span>
+                <span className="stat-heading">Lip Size — </span>
+                <span className="stat-value">{model?.lip_size}</span>
               </p>
-            </div>
+            </div> */}
 
             <div className="tab-book-model-btn-container">
               <button

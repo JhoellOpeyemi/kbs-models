@@ -45,12 +45,17 @@ export default function BlogDetails({ slug }: BlogDetailsProps) {
             src={
               typeof blog.image === "string"
                 ? blog.image
-                : urlFor(blog.image).auto("format").url()
+                : urlFor(blog.image)
+                    .width(1100)
+                    .auto("format")
+                    .quality(75)
+                    .url()
             }
             alt={blog.title || "blog image"}
             fill
             sizes="(max-width: 768px) 100vw, 65rem"
             priority
+            unoptimized
           />
         </div>
       )}

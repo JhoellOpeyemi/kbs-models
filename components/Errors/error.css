@@ -5,6 +5,10 @@
   margin-inline: auto;
 }
 
+.home-model-error-title {
+  margin-top: 2rem;
+}
+
 .home-model-error-title,
 .error-title {
   font-size: var(--l-text);

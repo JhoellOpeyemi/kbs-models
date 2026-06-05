@@ -1,13 +1,17 @@
 .value-container {
   display: flex;
   justify-content: space-between;
-  gap: var(--gap);
+  gap: calc(var(--gap) * 1.5);
+}
+
+.value-heading {
+  font-size: var(--heading);
 }
 
 .value-image-container {
   position: relative;
-  width: 50%;
-  height: 34.375rem;
+  width: 35%;
+  height: 28rem;
 }
 
 .value-image {

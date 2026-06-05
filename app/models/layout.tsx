@@ -2,7 +2,7 @@ import { brandTokens, buildAgencyPageTitle } from "@/lib/designTokens";
 
 export const metadata = {
   title: "Models",
-  description: `Explore the faces of ${brandTokens.agencyName} — a diverse representation of beauty, creativity, and individuality redefining modern modelling in Africa.`,
+  description: `Explore the faces of ${brandTokens.agencyName} — a diverse representation of beauty, creativity, and individuality redefining modern modelling globally.`,
   openGraph: {
     title: buildAgencyPageTitle("Models"),
     // url: '' this is the live url

@@ -16,7 +16,7 @@ const Gallery = ({ images }: { images?: Model["gallery"] }) => {
             typeof image === "string"
               ? image
               : // use sanity url builder for image objects
-                urlFor(image).auto("format").url();
+                urlFor(image).width(500).auto("format").quality(75).url();
 
           return <MediaCard image={imageUrl} key={index} />;
         })}

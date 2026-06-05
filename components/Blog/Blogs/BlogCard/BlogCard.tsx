@@ -34,11 +34,12 @@ const BlogCard = ({ blog }: { blog: Blog }) => {
       <div className="blog-image-container">
         {blog.image && (
           <Image
-            src={urlFor(blog.image).auto("format").url()}
+            src={urlFor(blog.image).width(400).auto("format").quality(75).url()}
             alt=""
             className="blog-image"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             fill
+            unoptimized
           />
         )}
       </div>

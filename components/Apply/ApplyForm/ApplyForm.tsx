@@ -233,62 +233,6 @@ const ApplyForm = () => {
 
           <div className="apply-form-input-group">
             <div className="input-group">
-              <label htmlFor="facebook" className="styled-input-label">
-                Facebook Username
-              </label>
-              <input
-                {...register("facebook")}
-                id="facebook"
-                type="text"
-                className="styled-input"
-                placeholder="facebook.username"
-              />
-              {errors.facebook && (
-                <span className="field-error">{errors.facebook.message}</span>
-              )}
-            </div>
-
-            <div className="input-group">
-              <label htmlFor="agencyOption" className="styled-input-label">
-                Worked with an agency before?
-              </label>
-              <select
-                {...register("agencyOption")}
-                id="agencyOption"
-                className="styled-select"
-              >
-                <option value="">Select an option</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-              </select>
-              {errors.agencyOption && (
-                <span className="field-error">
-                  {errors.agencyOption.message}
-                </span>
-              )}
-            </div>
-          </div>
-
-          <div className="apply-form-input-group">
-            <div className="input-group">
-              <label htmlFor="previousAgency" className="styled-input-label">
-                If Yes, State Previous Agency
-              </label>
-              <input
-                {...register("previousAgency")}
-                id="previousAgency"
-                type="text"
-                className="styled-input"
-                placeholder="Agency name (optional)"
-              />
-              {errors.previousAgency && (
-                <span className="field-error">
-                  {errors.previousAgency.message}
-                </span>
-              )}
-            </div>
-
-            <div className="input-group">
               <label htmlFor="headshot" className="styled-input-label">
                 Upload Headshot
               </label>
@@ -309,9 +253,7 @@ const ApplyForm = () => {
                 <span className="field-error">{errors.headshot.message}</span>
               )}
             </div>
-          </div>
 
-          <div className="apply-form-input-group">
             <div className="input-group">
               <label htmlFor="rightSideProfile" className="styled-input-label">
                 Upload Side Profile (Right View)
@@ -335,7 +277,9 @@ const ApplyForm = () => {
                 </span>
               )}
             </div>
+          </div>
 
+          <div className="apply-form-input-group">
             <div className="input-group">
               <label htmlFor="leftSideProfile" className="styled-input-label">
                 Upload Side Profile (Left View)
@@ -359,9 +303,7 @@ const ApplyForm = () => {
                 </span>
               )}
             </div>
-          </div>
 
-          <div className="apply-form-input-group">
             <div className="input-group">
               <label htmlFor="fullLength" className="styled-input-label">
                 Upload Full Length
@@ -383,7 +325,9 @@ const ApplyForm = () => {
                 <span className="field-error">{errors.fullLength.message}</span>
               )}
             </div>
+          </div>
 
+          <div className="apply-form-button-container">
             <FormBtn
               label={
                 isSubmitting

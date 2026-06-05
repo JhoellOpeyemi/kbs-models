@@ -15,11 +15,16 @@ const HomeModelCard = ({ model }: { model: Model }) => {
       >
         {model.headshot && (
           <Image
-            src={urlFor(model.headshot).auto("format").url()}
-            alt=""
+            src={urlFor(model.headshot)
+              .width(300)
+              .auto("format")
+              .quality(75)
+              .url()}
+            alt={`${model.name} headshot`}
             className="home-model-image"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             fill
+            unoptimized
           />
         )}
       </Link>
@@ -27,7 +32,7 @@ const HomeModelCard = ({ model }: { model: Model }) => {
       <div className="home-model-info-container">
         <h3 className="home-model-name">{model.name}</h3>
 
-        <ul className="model-stats-container">
+        {/* <ul className="model-stats-container">
           <li className="model-stat">
             <span className="stat-heading">Height —</span>
             <span className="stat-value">&nbsp;{model.height}</span>
@@ -46,7 +51,7 @@ const HomeModelCard = ({ model }: { model: Model }) => {
               <span className="stat-value">{model.chest}</span>
             </li>
           )}
-        </ul>
+        </ul> */}
       </div>
     </div>
   );

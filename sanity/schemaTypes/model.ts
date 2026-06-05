@@ -38,55 +38,23 @@ export const model = defineType({
       },
       validation: (rule) => rule.required(),
     }),
-    // female only fields
-    defineField({
-      name: "bust",
-      type: "number",
-      description: "Bust measurement in inches",
-      hidden: ({ parent }) => (parent?.gender === "female" ? false : true),
-    }),
-    defineField({
-      name: "hips",
-      type: "number",
-      description: "Hips measurement in inches",
-      hidden: ({ parent }) => (parent?.gender === "female" ? false : true),
-    }),
-    defineField({
-      name: "dress",
-      type: "number",
-      description: "Dress size",
-      hidden: ({ parent }) => (parent?.gender === "female" ? false : true),
-    }),
-    // male only fields
-    defineField({
-      name: "chest",
-      type: "number",
-      description: "Chest measurement in inches",
-      hidden: ({ parent }) => (parent?.gender === "male" ? false : true),
-    }),
-    defineField({
-      name: "inseam",
-      type: "number",
-      description: "Inseam measurement in inches",
-      hidden: ({ parent }) => (parent?.gender === "male" ? false : true),
-    }),
     // common fields
     defineField({
-      name: "height",
+      name: "skin_tone",
       type: "string",
-      description: "Height in feet and inches (e.g., 5'9)",
+      description: "Skin tone of the model. E.g., fair, ebony, dark",
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: "waist",
-      type: "number",
-      description: "Waist measurement in inches",
+      name: "skin_type",
+      type: "string",
+      description: "Skin type of the model. E.g., oily, dry, combination",
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: "eyes",
+      name: "face_shape",
       type: "string",
-      description: "Eye color",
+      description: "Face shape of the model",
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -96,9 +64,22 @@ export const model = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: "shoe",
-      type: "number",
-      description: "Shoe size",
+      name: "eye_color",
+      type: "string",
+      description: "Eye color",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "lip_size",
+      type: "string",
+      description: "Lip size of the model",
+      options: {
+        list: [
+          { title: "Full", value: "full" },
+          { title: "Medium", value: "medium" },
+          { title: "Thin", value: "thin" },
+        ],
+      },
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -116,7 +97,7 @@ export const model = defineType({
       name: "tag",
       type: "string",
       description:
-        "Tag the model as 'Top(shows on homepage and should be limited to a maximum of 6)' or 'Normal'",
+        "Tag the model as 'Top' or 'Normal'. Top models  show on the homepage and should be limited to a maximum of 6'",
       options: {
         list: [
           { title: "Top", value: "top" },

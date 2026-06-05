@@ -50,12 +50,17 @@ const ModelCard = ({
           <div className="model-card-image-container">
             {model.headshot && (
               <Image
-                src={urlFor(model.headshot).auto("format").url()}
+                src={urlFor(model.headshot)
+                  .width(220)
+                  .auto("format")
+                  .quality(75)
+                  .url()}
                 alt={`${model.name} headshot`}
                 className="model-card-image"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 fill
                 priority
+                unoptimized
               />
             )}
           </div>

@@ -49,6 +49,7 @@ export const blog = defineType({
     defineField({
       name: "date",
       type: "string",
+      description: "Date of publication. E.g., June 21, 2024",
       validation: (rule) => rule.required(),
     }),
   ],
