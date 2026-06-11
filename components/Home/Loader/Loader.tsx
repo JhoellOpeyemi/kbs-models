@@ -10,7 +10,6 @@ import "./loader.css";
 const loaderImages = [
   "/assets/loader/loader-4.jpg",
   "/assets/loader/loader-3.jpg",
-  "/assets/loader/loader-2.jpg",
   "/assets/loader/loader-1.jpg",
 ];
 
@@ -18,27 +17,18 @@ const Loader = () => {
   const [isLoading, setIsLoading] = useState(true);
   const loaderRef = useRef<HTMLDivElement>(null);
 
-  console.log(isLoading);
-
   useEffect(() => {
-    const originalOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
     const wrapperElements = Array.from(
       loaderRef.current?.querySelectorAll<HTMLElement>(
         ".loader-image-wrapper",
       ) ?? [],
     );
-    const loaderContainer = loaderRef.current;
-    const loaderText = loaderRef.current?.querySelector<HTMLElement>(
-      ".loader-text-content",
+    const loaderTextContainers = Array.from(
+      loaderRef.current?.querySelectorAll<HTMLElement>(
+        ".loader-text-container",
+      ) ?? [],
     );
-
-    if (!wrapperElements.length || !loaderContainer || !loaderText) {
-      return () => {
-        document.body.style.overflow = originalOverflow;
-      };
-    }
+    const loaderContainer = loaderRef.current;
 
     const timeline = gsap.timeline();
 
@@ -63,28 +53,27 @@ const Loader = () => {
           clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
           duration: 1.2,
           ease: ease2,
-          onComplete: () => {
-            setIsLoading(false);
-          },
         },
         "+=1.5",
       )
-      .to(
-        loaderContainer,
-        {
-          opacity: 0,
-          duration: 0.8,
-          ease: ease1,
+      .to(loaderTextContainers, {
+        opacity: 0,
+        duration: 0.5,
+        onComplete: () => {
+          setIsLoading(false);
         },
-        "+=1",
-      )
+      })
+      .to(loaderContainer, {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+        duration: 1.2,
+        ease: ease2,
+      })
       .to(loaderContainer, {
         visibility: "hidden",
       });
 
     return () => {
       timeline.kill();
-      document.body.style.overflow = originalOverflow;
     };
   }, []);
 
