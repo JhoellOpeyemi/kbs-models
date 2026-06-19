@@ -7,6 +7,7 @@
   padding: 5vh 5%;
   z-index: 9999;
   user-select: none;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .loader-wrapper {
@@ -25,14 +26,14 @@
 }
 
 .loader-brand-name-text {
-  font-size: var(--sm-heading);
+  font-size: var(--xl-text);
   line-height: 1.1;
   font-weight: 500;
   text-transform: uppercase;
 }
 
 .loader-text-content {
-  font-size: var(--l-text);
+  font-size: var(--md-text);
   /* text-align: right; */
   animation: blink-slow 4s ease-in-out infinite;
 }
@@ -43,7 +44,7 @@
     opacity: 1;
   }
   50% {
-    opacity: 0.5;
+    opacity: 0.25;
   }
 }
 
@@ -72,7 +73,7 @@
 
 @media screen and (max-width: 768px) {
   .loader-container {
-    padding: 10vh 5%;
+    padding: 15vh 5%;
   }
 
   .loader-wrapper {
@@ -91,8 +92,8 @@
   }
 
   .loader-images-container {
-    width: 85%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
     max-height: 512px;
   }
 

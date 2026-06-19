@@ -78,12 +78,44 @@
   overflow: hidden;
 }
 
+.footer-brand-marquee {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  width: max-content;
+  animation: footer-marquee 15s linear infinite;
+  will-change: transform;
+  overflow: hidden;
+}
+
+.footer-brand-container:hover .footer-brand-marquee,
+.footer-brand-marquee:hover {
+  animation-play-state: paused;
+}
+
 .footer-brand {
   text-transform: uppercase;
   font-size: var(--xl-heading);
   opacity: 0.6;
   font-weight: 700;
   white-space: nowrap;
+  display: inline-block;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.footer-brand:last-child {
+  margin-right: 3rem;
+}
+
+@keyframes footer-marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .brand-models {

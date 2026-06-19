@@ -7,6 +7,10 @@
   line-height: 1.2;
 }
 
+.home-about-text span {
+  opacity: 0.4;
+}
+
 @media screen and (max-width: 768px) {
   .home-about-text {
     width: 95%;

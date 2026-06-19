@@ -65,10 +65,20 @@ const DesktopFooter = () => {
           </div>
 
           <div className="footer-brand-container">
-            <h5 className="footer-brand">
-              <span className="brand-short">{brandTokens.agencyShortName}</span>
-              <span className="brand-models">Models</span>
-            </h5>
+            <div className="footer-brand-marquee">
+              <h5 className="footer-brand">
+                <span className="brand-short">
+                  {brandTokens.agencyShortName}
+                </span>
+                <span className="brand-models">Models</span>
+              </h5>
+              <h5 className="footer-brand" aria-hidden="true">
+                <span className="brand-short">
+                  {brandTokens.agencyShortName}
+                </span>
+                <span className="brand-models">Models</span>
+              </h5>
+            </div>
           </div>
         </div>
       </div>

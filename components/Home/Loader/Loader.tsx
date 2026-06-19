@@ -4,13 +4,13 @@ import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { brandTokens } from "@/lib/designTokens";
 
-import { ease1, ease2 } from "@/utils";
+import { ease1 } from "@/utils";
 import "./loader.css";
 
 const loaderImages = [
-  "/assets/loader/loader-4.jpg",
-  "/assets/loader/loader-3.jpg",
-  "/assets/loader/loader-1.jpg",
+  "/assets/loader/loader-4.webp",
+  "/assets/loader/loader-3.webp",
+  "/assets/loader/loader-1.webp",
 ];
 
 const Loader = () => {
@@ -40,21 +40,12 @@ const Loader = () => {
         },
         {
           clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-          duration: 1.2,
-          ease: ease2,
+          duration: 1,
+          ease: ease1,
           stagger: {
-            each: 2.5,
+            each: 1.25,
           },
         },
-      )
-      .to(
-        wrapperElements,
-        {
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-          duration: 1.2,
-          ease: ease2,
-        },
-        "+=1.5",
       )
       .to(loaderTextContainers, {
         opacity: 0,
@@ -65,8 +56,8 @@ const Loader = () => {
       })
       .to(loaderContainer, {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-        duration: 1.2,
-        ease: ease2,
+        duration: 1,
+        ease: ease1,
       })
       .to(loaderContainer, {
         visibility: "hidden",
