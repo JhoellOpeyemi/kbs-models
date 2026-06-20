@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import "./aboutImage.css";
+import LargeTextBanner from "@/components/utils/LargeTextBanner/LargeTextBanner";
 
 const AboutImage = () => {
   return (
@@ -9,7 +10,7 @@ const AboutImage = () => {
         <Image src="/brands-img.webp" alt="" fill />
       </div>
 
-      <h3>Modelling agency that shapes talent into global icons</h3>
+      <LargeTextBanner texts="Modelling agency that shapes talent into global icons" />
     </div>
   );
 };

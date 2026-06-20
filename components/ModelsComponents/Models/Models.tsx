@@ -62,10 +62,6 @@ const Models = () => {
         return horizontalScrollTrigger?.kill;
       });
 
-      mm.add("(max-width: 767px)", () => {
-        return () => {};
-      });
-
       return () => mm.revert();
     },
     { dependencies: [refsReady] },
@@ -102,6 +98,9 @@ const Models = () => {
   return (
     <>
       <section className="models-section-container">
+        <p aria-label="hidden" className="models-section-info">
+          &lt;&lt; Swipe to view more &gt;&gt;
+        </p>
         <ul className="models-list-container">
           <div className="model-card-wrapper" ref={scrollContainerRef}>
             {filteredModels && filteredModels.length > 0 ? (

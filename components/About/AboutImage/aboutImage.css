@@ -17,15 +17,6 @@
   object-fit: cover;
 }
 
-.about-image-container h3 {
-  font-size: var(--page-heading);
-  font-weight: 500;
-  line-height: 1.2;
-  text-align: center;
-  width: 90%;
-  margin: 0 auto;
-}
-
 @media screen and (max-width: 768px) {
   .about-image-container {
     margin: 4rem 0;
@@ -38,10 +29,5 @@
     height: unset;
     max-height: unset;
     margin: 0 auto;
-  }
-
-  .about-image-container h3 {
-    font-size: clamp(2rem, 3vw, 2.5rem);
-    width: 80%;
   }
 }

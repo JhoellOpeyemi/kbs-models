@@ -82,7 +82,7 @@ const MobileNav = () => {
 
               <div className="nav-footer-image-container">
                 <Image
-                  src="/hero-img.webp"
+                  src="/brands-img.webp"
                   alt="nav footer image"
                   style={{ objectFit: "cover" }}
                   className="nav-footer-image"

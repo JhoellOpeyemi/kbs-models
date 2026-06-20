@@ -29,7 +29,7 @@ const ModelDetails = ({ slug }: { slug: string }) => {
           <div className="model-details-content">
             <h1 className="model-name">{model?.name}</h1>
 
-            {/* <div className="model-stats-container">
+            <div className="model-stats-container">
               <p className="model-stat">
                 <span className="stat-heading">Skin Tone — </span>
                 <span className="stat-value">{model?.skin_tone}</span>
@@ -54,7 +54,7 @@ const ModelDetails = ({ slug }: { slug: string }) => {
                 <span className="stat-heading">Lip Size — </span>
                 <span className="stat-value">{model?.lip_size}</span>
               </p>
-            </div> */}
+            </div>
 
             <div className="tab-book-model-btn-container">
               <button

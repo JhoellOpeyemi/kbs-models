@@ -82,7 +82,7 @@
   gap: 3rem;
   align-items: center;
   width: max-content;
-  animation: mobile-marquee 15s linear infinite;
+  animation: mobile-marquee 20s linear infinite;
   will-change: transform;
   overflow: hidden;
 }

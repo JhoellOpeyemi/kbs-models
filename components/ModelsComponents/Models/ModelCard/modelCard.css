@@ -16,8 +16,8 @@
 
 .model-card-image-container {
   position: relative;
-  width: 10rem;
-  aspect-ratio: 1 / 1.1;
+  width: 10.5rem;
+  aspect-ratio: 1 / 1.2;
 }
 
 .model-card-image {
@@ -47,17 +47,31 @@
 }
 
 @media screen and (max-width: 992px) {
-  .model-card-container {
+  .model-card-link {
+    display: block;
+    position: relative;
     width: 100%;
+    max-width: 100%;
   }
 
   .model-card-image-container {
+    position: relative;
     width: 100%;
-    aspect-ratio: 1/1;
+    aspect-ratio: 1 / 1.25;
+  }
+
+  .model-card-container {
+    width: 100%;
   }
 }
 
 @media screen and (max-width: 480px) {
+  .model-card-link {
+    display: block;
+    position: relative;
+    width: fit-content;
+  }
+
   .model-card-container {
     position: relative;
     width: 100%;
@@ -74,11 +88,11 @@
 
   .model-index,
   .model-card-image-container {
-    width: 11rem;
+    width: 11.5rem;
   }
 
   .model-card-image-container {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1 / 1.2;
   }
 
   .mobile-model-name {

@@ -14,6 +14,7 @@ function buildContentSecurityPolicy(): string {
       "https://static.vercel-insights.com",
       "https://*.vercel-insights.com",
       "https://vercel-insights.com",
+      "https://va.vercel-scripts.com",
     ]
       .filter(Boolean)
       .join(" "),
@@ -36,6 +37,7 @@ function buildContentSecurityPolicy(): string {
       "https://*.sanity.io",
       "https://static.vercel-insights.com",
       "https://*.vercel-insights.com",
+      "https://va.vercel-scripts.com",
       process.env.NODE_ENV !== "production" ? "http://localhost:3000" : "",
       process.env.NODE_ENV !== "production" ? "ws://localhost:3000" : "",
     ]

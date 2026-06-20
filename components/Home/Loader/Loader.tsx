@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { brandTokens } from "@/lib/designTokens";
 
 import { ease1 } from "@/utils";
@@ -17,56 +18,55 @@ const Loader = () => {
   const [isLoading, setIsLoading] = useState(true);
   const loaderRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const wrapperElements = Array.from(
-      loaderRef.current?.querySelectorAll<HTMLElement>(
-        ".loader-image-wrapper",
-      ) ?? [],
-    );
-    const loaderTextContainers = Array.from(
-      loaderRef.current?.querySelectorAll<HTMLElement>(
-        ".loader-text-container",
-      ) ?? [],
-    );
-    const loaderContainer = loaderRef.current;
+  useGSAP(
+    () => {
+      const timeline = gsap.timeline();
 
-    const timeline = gsap.timeline();
-
-    timeline
-      .fromTo(
-        wrapperElements,
-        {
-          clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-        },
-        {
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-          duration: 1,
-          ease: ease1,
-          stagger: {
-            each: 1.25,
+      timeline
+        .fromTo(
+          ".loader-image-wrapper",
+          {
+            clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
           },
-        },
-      )
-      .to(loaderTextContainers, {
-        opacity: 0,
-        duration: 0.5,
-        onComplete: () => {
-          setIsLoading(false);
-        },
-      })
-      .to(loaderContainer, {
-        clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-        duration: 1,
-        ease: ease1,
-      })
-      .to(loaderContainer, {
-        visibility: "hidden",
-      });
+          {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            duration: 1,
+            ease: ease1,
+            stagger: {
+              each: 1.75,
+            },
+          },
+        )
+        .to(
+          ".loader-wrapper",
+          {
+            opacity: 0,
+            duration: 0.5,
+            onComplete: () => {
+              setIsLoading(false);
+            },
+          },
+          "+=0.75",
+        )
+        .to(
+          loaderRef.current,
+          {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+            duration: 1,
+            ease: ease1,
+          },
+          "-=0.25",
+        )
+        .to(loaderRef.current, {
+          visibility: "hidden",
+        });
 
-    return () => {
-      timeline.kill();
-    };
-  }, []);
+      return () => {
+        timeline.kill();
+      };
+    },
+    { scope: loaderRef },
+  );
 
   useEffect(() => {
     if (!isLoading) {

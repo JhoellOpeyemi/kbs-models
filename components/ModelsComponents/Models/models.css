@@ -2,6 +2,10 @@
   margin-top: 4rem;
 }
 
+.models-section-info {
+  display: none;
+}
+
 .models-list-container {
   width: 100%;
 }
@@ -43,10 +47,9 @@
 
   .model-card-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
     gap: calc(var(--gap) * 1.5) var(--gap);
     width: 100%;
-    padding: 0 5%;
     height: fit-content;
   }
 
@@ -63,11 +66,26 @@
 
 @media screen and (max-width: 480px) {
   .models-section-container {
+    position: relative;
     margin-top: 0;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .models-section-info {
+    display: block;
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.55;
+    font-size: var(--text);
+    font-style: italic;
+    text-align: center;
+    pointer-events: none;
+    user-select: none;
   }
 
   .models-list-container {

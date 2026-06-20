@@ -55,34 +55,33 @@ export const horizontalScroll = (
   const trigger = triggerElement.current;
   const element = elementToScroll.current;
 
-  console.log(trigger);
-
   const getScrollAmount = () => {
     const elementWidth = element.offsetWidth;
     return -(elementWidth - window.innerWidth);
   };
 
-  const tween = gsap.to(element, {
-    x: getScrollAmount,
-    ease: "none",
-  });
+  if (element.offsetWidth > window.innerWidth) {
+    const tween = gsap.to(element, {
+      x: getScrollAmount,
+      ease: "none",
+      scrollTrigger: {
+        trigger,
+        start: "clamp(top top)",
+        end: () => `+${getScrollAmount()}`,
+        pin: true,
+        pinSpacing: true,
+        scrub: 2,
+        invalidateOnRefresh: true,
+      },
+    });
 
-  const horizontalScrollTrigger = ScrollTrigger.create({
-    trigger: trigger,
-    start: "clamp(top top)",
-    end: () => `+${getScrollAmount() * -1.5}`,
-    pin: true,
-    pinSpacing: true,
-    animation: tween,
-    scrub: 2,
-    invalidateOnRefresh: true,
-  });
+    const kill: () => void = () => {
+      tween.scrollTrigger?.kill();
+      tween.kill();
+    };
 
-  const kill = () => {
-    horizontalScrollTrigger.kill();
-  };
-
-  return { kill };
+    return { kill };
+  }
 };
 
 export const ease1 = "cubic-bezier(0.34, 1.56, 0.64, 1)";

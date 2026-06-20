@@ -1,4 +1,4 @@
-.home-about-text {
+.text-banner-container {
   text-align: center;
   width: 85%;
   margin: 0 auto;
@@ -7,12 +7,12 @@
   line-height: 1.2;
 }
 
-.home-about-text span {
-  opacity: 0.4;
+.text-banner-container span {
+  opacity: 0.1;
 }
 
 @media screen and (max-width: 768px) {
-  .home-about-text {
+  .text-banner-container {
     width: 95%;
   }
 }
