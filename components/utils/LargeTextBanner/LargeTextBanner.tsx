@@ -21,7 +21,7 @@ const LargeTextBanner = ({ texts }: { texts: string }) => {
         scrollTrigger: {
           trigger: textRef.current,
           start: "top 90%",
-          end: "bottom 50%",
+          end: "top 30%",
           scrub: true,
         },
       });
