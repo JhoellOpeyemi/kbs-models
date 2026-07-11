@@ -5,7 +5,8 @@ import { brandTokens } from "@/lib/designTokens";
 
 import { ScrollToTopProvider } from "@/components/utils/ScrollToTopProvider";
 
-import Providers from "@/app/providers";
+import QueryProvider from "@/providers/QueryProvider";
+import TransitionProvider from "@/providers/TransitionProvider";
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
 import Lenis from "./lenis";
@@ -98,9 +99,11 @@ export default function RootLayout({
       <body>
         <ScrollToTopProvider />
         <Lenis>
-          <Nav />
-          <Providers>{children}</Providers>
-          <Footer />
+          <TransitionProvider>
+            <Nav />
+            <QueryProvider>{children}</QueryProvider>
+            <Footer />
+          </TransitionProvider>
         </Lenis>
         <Analytics />
       </body>
