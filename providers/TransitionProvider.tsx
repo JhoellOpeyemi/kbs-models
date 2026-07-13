@@ -4,6 +4,8 @@ import { useRef, useEffect } from "react";
 import { TransitionRouter } from "next-transition-router";
 import gsap from "gsap";
 
+type TransitionComplete = () => void;
+
 const rows = 4;
 const cols = 16;
 
@@ -52,7 +54,7 @@ export default function TransitionProvider({
   const getRowBlocks = (row: number) =>
     blocksRef.current.slice(row * cols, row * cols + cols);
 
-  const animateIn = (onComplete) => {
+  const animateIn = (onComplete: TransitionComplete) => {
     const tl = gsap.timeline({ onComplete });
 
     [0, 1, 2, 3].forEach((row: number) => {
@@ -76,7 +78,7 @@ export default function TransitionProvider({
     return tl;
   };
 
-  const animateOut = (onComplete) => {
+  const animateOut = (onComplete: TransitionComplete) => {
     const tl = gsap.timeline({ onComplete });
 
     [0, 1, 2, 3].forEach((row: number) => {
