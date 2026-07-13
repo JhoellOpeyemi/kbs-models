@@ -80,8 +80,9 @@
     top: 2rem;
     left: 50%;
     transform: translateX(-50%);
+    width: 100%;
     opacity: 0.55;
-    font-size: var(--text);
+    font-size: var(--sm-text);
     font-style: italic;
     text-align: center;
     pointer-events: none;

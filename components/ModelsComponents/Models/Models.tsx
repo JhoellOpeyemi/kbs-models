@@ -99,7 +99,7 @@ const Models = () => {
     <>
       <section className="models-section-container">
         <p aria-label="hidden" className="models-section-info">
-          &lt;&lt; Swipe to view more &gt;&gt;
+          &lt;&lt; Swipe to view models &gt;&gt;
         </p>
         <ul className="models-list-container">
           <div className="model-card-wrapper" ref={scrollContainerRef}>

@@ -17,7 +17,6 @@ export const applicationSchema = z.object({
     .max(80, "Age must not exceed 80"),
   address: z.string().min(5, "Residential address is required"),
   instagram: z.string().min(1, "Instagram username is required"),
-  facebook: z.string().min(1, "Facebook username is required"),
   agencyOption: z.enum(["yes", "no"], { message: "Please select an option" }),
   previousAgency: z.string().optional(),
   headshot: z

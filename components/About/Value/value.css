@@ -23,7 +23,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: var(--gap);
+  gap: calc(var(--gap) * 0.7);
 }
 
 .value-text-container a {
@@ -45,7 +45,7 @@
 
   .value-text-container {
     width: min(32rem, 100%);
-    gap: calc(var(--gap) * 2.4);
+    gap: calc(var(--gap) * 1.6);
   }
 }
 

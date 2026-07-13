@@ -24,11 +24,7 @@ const ApplyInfo = () => {
               jawline and cheekbones are well depicted.
             </li>
             <li className="polaroids-info-list">
-              Do not retouch the images in any war. Blemishes are fine.
-            </li>
-            <li className="polaroids-info-list">
-              Try to avoid flash photography (turn the flash off on your
-              camera).
+              Do not retouch the images in any way. Blemishes are fine.
             </li>
             <li className="polaroids-info-list">
               Please make sure uploaded images are less than 5MB.
@@ -53,11 +49,6 @@ const ApplyInfo = () => {
             <li className="picture-guideline-list">
               Keep the background simple, for example, a simple wall, ideally
               white.
-            </li>
-            <li className="picture-guideline-list">
-              If you are too dark in pictures, it&apos;s probably because the
-              background is too bright. Consider getting yourself properly
-              exposed and if you can&apos;t, you can try turning the flash on.
             </li>
           </ul>
         </div>

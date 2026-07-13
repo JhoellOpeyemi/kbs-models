@@ -1,3 +1,5 @@
+import StyledLink from "@/components/utils/StyledLink/StyledLink";
+
 import { brandTokens } from "@/lib/designTokens";
 
 import "./aboutIntro.css";
@@ -19,13 +21,13 @@ const About = () => {
           In 2015, Adewara Christiana Semilore — then a student at Lagos State
           University and a freshly crowned beauty queen — began picking up face
           modelling jobs to support herself through school. She was good at it.
-          Word spread. Friends and coursemates started asking if she could bring
-          them in. She said yes, and then she realised: there was no structure
-          in Lagos for this. No agency specifically built for face modelling. No
-          platform that connected models with the makeup artists, photographers,
-          and beauty brands who needed them — without demanding that the models
-          be a certain height, a certain size, or have years of runway
-          experience. So, she built one.
+          Word spread. Friends and course mates started asking if she could
+          bring them in. She said yes, and then she realised: there was no
+          structure in Lagos for this. No agency specifically built for face
+          modelling. No platform that connected models with the makeup artists,
+          photographers, and beauty brands who needed them — without demanding
+          that the models be a certain height, a certain size, or have years of
+          runway experience. So, she built one.
         </p>
 
         <p className="about-text">
@@ -52,8 +54,10 @@ const About = () => {
           For clients, we offer speed, variety, and reliability. When you book
           through {brandTokens.agencyShortName}, you get access to a curated
           roster of vetted face models across multiple cities, a straightforward
-          booking process via direct message, and the assurance that comes with
-          working with Nigeria's most established face modelling agency.
+          booking process via our website by going to the{" "}
+          <StyledLink path="/models" label="models" /> page, select a model and click 'Book Model'. You also get the assurance
+          that comes with working with Nigeria's most established face modelling
+          agency.
         </p>
       </div>
     </section>

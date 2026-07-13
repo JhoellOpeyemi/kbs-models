@@ -11,6 +11,7 @@
   .apply-text-container {
     width: 80%;
     margin: 5rem 0 7rem 10%;
+    gap: calc(var(--gap) * 1.2);
   }
 }
 
@@ -18,5 +19,6 @@
   .apply-text-container {
     width: 100%;
     margin: 4rem 0 5rem;
+    gap: calc(var(--gap) * 1);
   }
 }
